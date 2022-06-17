@@ -1,10 +1,11 @@
 {
-  "name": "@smg-automotive/example",
-  "version": "0.0.0-development",
-  "description": "A boilerplate package setup",
+  "name": "@smg-automotive/configuration",
+  "version": "1.0.0",
+  "description": "SMG Automotive configuration conventions",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "files": [
     "dist/**/*"
   ],
@@ -24,9 +25,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/smg-automotive/fe-example-pkg.git"
+    "url": "git+https://github.com/smg-automotive/configuration-pkg.git"
   },
-  "homepage": "https://github.com/smg-automotive/fe-example-pkg#readme",
+  "homepage": "https://github.com/smg-automotive/configuration-pkg#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "22.0.0",
     "@rollup/plugin-node-resolve": "13.3.0",
@@ -36,6 +37,7 @@
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "14.2.0",
     "@types/jest": "28.1.1",
+    "@types/node": "18.0.0",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "rimraf": "3.0.2",
@@ -46,5 +48,8 @@
     "ts-jest": "28.0.5",
     "ts-node": "10.8.1",
     "typescript": "4.7.3"
+  },
+  "dependencies": {
+    "dotenv": "16.0.1"
   }
 }
