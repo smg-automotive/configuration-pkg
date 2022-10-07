@@ -29,6 +29,7 @@
   "homepage": "https://github.com/smg-automotive/configuration-pkg#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "22.0.2",
+"@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "14.1.0",
     "@rollup/plugin-typescript": "8.5.0",
     "@smg-automotive/eslint-config": "2.0.30",
@@ -47,6 +48,6 @@
     "typescript": "4.8.4"
   },
   "dependencies": {
-    "dotenv": "16.0.2"
+    "dotenv": "16.0.3"
   }
 }
