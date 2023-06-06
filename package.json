@@ -32,7 +32,7 @@
     "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@rollup/plugin-typescript": "11.1.1",
-    "@smg-automotive/eslint-config": "3.0.21",
+    "@smg-automotive/eslint-config": "3.0.22",
     "@testing-library/jest-dom": "5.16.5",
     "@types/jest": "29.5.2",
     "@types/node": "18.16.16",
