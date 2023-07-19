@@ -8,7 +8,7 @@ export interface Configuration {
 
 if (typeof window !== 'undefined') {
   throw new Error(
-    "It looks like you're loading the configuration in the browser. Use process.env.VARIABLE instead"
+    "It looks like you're loading the configuration in the browser. Use process.env.VARIABLE instead",
   );
 }
 
