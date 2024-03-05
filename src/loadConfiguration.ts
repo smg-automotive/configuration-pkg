@@ -43,7 +43,6 @@ const loadConfiguration = (): Configuration => {
 
   const configPath = path.resolve(envDir, env);
   const configuration = {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     CONFIG_ENV: env,
     VERSION: version,
     ...loadEnvFile(configPath),
