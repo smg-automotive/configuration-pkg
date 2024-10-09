@@ -6,6 +6,14 @@ import json from '@rollup/plugin-json';
 import commonjs from '@rollup/plugin-commonjs';
 
 import packageJson from './package.json' assert { type: 'json' };
+import { dirname } from "path";
+
+const jsPlugins = [
+  json(),
+  peerDepsExternal(),
+  resolve(),
+  commonjs(),
+]
 
 export default [
   {
@@ -16,6 +24,19 @@ export default [
         format: 'cjs',
         sourcemap: true,
       },
+    ],
+    plugins: [
+      ...jsPlugins,
+      typescript({
+        tsconfig: './tsconfig.build.json',
+        outDir: dirname(packageJson.main),
+      }),
+    ],
+    external: ['react', 'react-dom'],
+  },
+  {
+    input: 'src/index.ts',
+    output: [
       {
         file: packageJson.module,
         format: 'esm',
@@ -23,17 +44,17 @@ export default [
       },
     ],
     plugins: [
-      json(),
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: './tsconfig.build.json' }),
+      ...jsPlugins,
+      typescript({
+        tsconfig: './tsconfig.build.json',
+        outDir: dirname(packageJson.module),
+      }),
     ],
     external: ['react', 'react-dom'],
   },
   {
     input: 'src/index.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    output: [{ file: packageJson.types, format: 'esm' }],
     plugins: [dts({ tsconfig: './tsconfig.build.json' })],
   },
 ];
