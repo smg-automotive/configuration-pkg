@@ -28,10 +28,10 @@
   },
   "homepage": "https://github.com/smg-automotive/configuration-pkg#readme",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "28.0.1",
+    "@rollup/plugin-commonjs": "28.0.2",
     "@rollup/plugin-json": "6.1.0",
-    "@rollup/plugin-node-resolve": "15.3.0",
-    "@rollup/plugin-typescript": "12.1.1",
+    "@rollup/plugin-node-resolve": "15.3.1",
+    "@rollup/plugin-typescript": "12.1.2",
     "@smg-automotive/eslint-config": "4.0.101",
     "@testing-library/jest-dom": "6.6.3",
     "@types/jest": "29.5.14",
