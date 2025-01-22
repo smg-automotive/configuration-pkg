@@ -14,7 +14,7 @@
   "scripts": {
     "version": "npm run build",
     "build": "rimraf dist && rollup -c",
-    "lint": "eslint --ext ts,js,tsx,jsx,json .",
+    "lint": "eslint .",
     "format": "npm run lint -- --fix",
     "typecheck": "tsc --noEmit",
     "test": "jest",
@@ -48,6 +48,7 @@
     "typescript": "5.7.3"
   },
   "dependencies": {
-    "dotenv": "16.4.7"
+    "dotenv": "16.4.7",
+    "globals": "15.14.0"
   }
 }
