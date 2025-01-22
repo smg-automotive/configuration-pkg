@@ -1,19 +1,14 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import dts from 'rollup-plugin-dts';
+import { dirname } from 'path';
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import json from '@rollup/plugin-json';
 import commonjs from '@rollup/plugin-commonjs';
 
 import packageJson from './package.json' assert { type: 'json' };
-import { dirname } from "path";
 
-const jsPlugins = [
-  json(),
-  peerDepsExternal(),
-  resolve(),
-  commonjs(),
-]
+const jsPlugins = [json(), peerDepsExternal(), resolve(), commonjs()];
 
 export default [
   {
