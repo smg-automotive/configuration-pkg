@@ -50,6 +50,6 @@
   },
   "dependencies": {
     "dotenv": "16.4.7",
-    "globals": "16.2.0"
+    "globals": "16.3.0"
   }
 }
