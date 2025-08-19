@@ -35,7 +35,7 @@
     "@smg-automotive/eslint-config": "5.1.2",
     "@testing-library/jest-dom": "6.6.4",
     "@types/jest": "30.0.0",
-    "@types/node": "22.17.1",
+    "@types/node": "22.17.2",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
     "rimraf": "6.0.1",
