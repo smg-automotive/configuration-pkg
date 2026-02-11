@@ -49,7 +49,7 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "dotenv": "17.2.3",
+    "dotenv": "17.2.4",
     "globals": "17.3.0"
   }
 }
