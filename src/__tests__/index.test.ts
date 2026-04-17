@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import loadConfiguration from '../loadConfiguration';
+import loadConfiguration from '@/src/loadConfiguration';
 
 beforeEach(() => {
   process.env.CONFIG_ENV = '';
