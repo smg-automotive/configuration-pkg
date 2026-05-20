@@ -11,6 +11,8 @@ You can add local overrides in `.env/<CONFIG_ENV>.local`. This is useful for tem
 npm install @smg-automotive/configuration
 ```
 
+The package exports a `loadConfiguration` function.
+
 Add the following line to your `.gitignore`
 ```
 /.env/*.local
@@ -22,19 +24,74 @@ The configuration environment can be passed via `CONFIG_ENV` environment variabl
 $ CONFIG_ENV=stage-prod npm run dev
 ```
 
+## Upgrading
+
+The package no longer eagerly loads configuration when imported. The root export is now a
+`loadConfiguration` function, so update existing imports to call it explicitly:
+
+```
+// Before
+const configuration = require("@smg-automotive/configuration")
+
+// After
+const loadConfiguration = require("@smg-automotive/configuration")
+const configuration = loadConfiguration()
+```
+
+For side-effect only usage, call the required function:
+
+```
+// Before
+require("@smg-automotive/configuration")
+
+// After
+require("@smg-automotive/configuration")()
+```
+
+If the config can be loaded from a different working directory than the app directory, pass
+`envDir` explicitly:
+
+```
+const path = require("path")
+const loadConfiguration = require("@smg-automotive/configuration")
+
+const configuration = loadConfiguration({
+  envDir: path.join(__dirname, ".env")
+})
+```
+
 In a nextjs project, you can call `loadConfiguration()` in `next.config.js` and pass the result to next as `env`, see https://nextjs.org/docs/api-reference/next.config.js/environment-variables - configuration values will be available on `process.env` both client- and server-side
 
 ```
-const configuration = require("@smg-automotive/configuration")
+const loadConfiguration = require("@smg-automotive/configuration")
+
+const configuration = loadConfiguration()
+
 module.exports = {
   env: configuration
 }
 ```
 
-In any node process, simply require the package in your entry point and access variables on `process.env`. Do this as early in the file as possible, ie. before requiring any files that are accessing config variables
+If your `next.config.js` can be required by tooling from a different working directory, load the
+configuration from an explicit `.env` directory instead:
 
 ```
-require("@smg-automotive/configuration")
+const path = require("path")
+const loadConfiguration = require("@smg-automotive/configuration")
+
+const configuration = loadConfiguration({
+  envDir: path.join(__dirname, ".env")
+})
+
+module.exports = {
+  env: configuration
+}
+```
+
+In any node process, call the package in your entry point and access variables on `process.env`. Do this as early in the file as possible, ie. before requiring any files that are accessing config variables
+
+```
+require("@smg-automotive/configuration")()
 ```
 
 ## Development

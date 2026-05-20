@@ -1,4 +1,5 @@
-import loadConfiguration from './loadConfiguration';
-const configuration = loadConfiguration();
-
-export default configuration;
+export { default } from './loadConfiguration';
+export type {
+  Configuration,
+  LoadConfigurationOptions,
+} from './loadConfiguration';
