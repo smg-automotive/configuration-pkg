@@ -6,6 +6,10 @@ export interface Configuration {
   [key: string]: string | number | boolean;
 }
 
+export interface LoadConfigurationOptions {
+  envDir?: string;
+}
+
 if (typeof window !== 'undefined') {
   throw new Error(
     "It looks like you're loading the configuration in the browser. Use process.env.VARIABLE instead",
@@ -25,8 +29,12 @@ const loadEnvFile = (configPath: string) => {
   return configuration.parsed;
 };
 
-const loadConfiguration = (): Configuration => {
-  const envDir = path.join(process.cwd(), '.env');
+const loadConfiguration = (
+  options: LoadConfigurationOptions = {},
+): Configuration => {
+  const envDir = path.resolve(
+    options.envDir ?? path.join(process.cwd(), '.env'),
+  );
   const environments = fs.readdirSync(envDir);
 
   const nodeEnv = process.env.NODE_ENV || 'development';
