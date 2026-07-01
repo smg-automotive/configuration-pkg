@@ -1,5 +1,15 @@
 # SMG Automotive Configuration
 
+<div align="center">
+
+# Migration Notice
+
+**This project has been migrated to the `automotive-web` monorepo and will soon be archived.**
+
+**All future changes should be applied there.**
+
+</div>
+
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 It loads configuration for a specific stage via `dotenv` from `.env/<CONFIG_ENV>`. If no environment is provided it defaults to `NODE_ENV`.
